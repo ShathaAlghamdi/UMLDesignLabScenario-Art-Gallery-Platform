@@ -1,0 +1,20 @@
+sequenceDiagram
+    actor User
+    participant Visitor
+    participant Payment
+    participant Artwork
+
+    User->>Visitor: login()
+    User->>Visitor: purchaseArtwork()
+    Visitor->>Payment: processPayment()
+
+    alt Payment successful
+        Payment-->>Visitor: success
+        Visitor->>Artwork: updateAvailability()
+        Visitor-->>User: purchase successful
+    else Payment failed
+        Payment-->>Visitor: failed
+        Visitor-->>User: purchase failed
+    end
+
+    User->>Visitor: logout()

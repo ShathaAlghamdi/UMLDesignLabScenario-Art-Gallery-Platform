@@ -1,0 +1,11 @@
+sequenceDiagram
+    actor User
+    participant Visitor
+    participant Artwork
+
+    User->>Visitor: browseArtworks()
+    Visitor-->>User: artworks displayed
+    User->>Visitor: viewArtwork()
+    Visitor->>Artwork: viewDetails()
+    Artwork-->>Visitor: artwork details
+    Visitor-->>User: artwork details displayed

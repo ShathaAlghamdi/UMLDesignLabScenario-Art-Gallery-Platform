@@ -1,0 +1,14 @@
+sequenceDiagram
+    actor User
+    participant Artist
+
+    User->>Artist: login()
+    User->>Artist: uploadArtwork()
+
+    alt Upload successful
+        Artist-->>User: artwork uploaded successfully
+    else Upload failed
+        Artist-->>User: artwork upload failed
+    end
+
+    User->>Artist: logout()
