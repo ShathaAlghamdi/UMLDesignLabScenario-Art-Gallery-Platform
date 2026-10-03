@@ -1,0 +1,56 @@
+classDiagram
+direction TB
+    class User {
+	    -int user_id
+	    -str name
+	    -str email
+	    -str password
+	    +login()
+	    +logout()
+    }
+
+    class Artist {
+	    -str bio
+	    +uploadArtwork()
+	    +updateArtwork()
+	    +removeArtwork()
+    }
+
+    class Visitor {
+	    +browseArtworks()
+	    +viewArtwork()
+	    +purchaseArtwork()
+    }
+
+    class Admin {
+	    +manageUsers()
+	    +manageArtworks()
+    }
+
+    class Artwork {
+	    -int artwork_id
+	    -str title
+	    -str description
+	    -float price
+	    -str image_url
+	    -bool available
+	    +viewDetails()
+	    +updateAvailability()
+    }
+
+    class Payment {
+	    -int payment_id
+	    -float amount
+	    -str status
+	    +processPayment()
+    }
+
+    User <|-- Artist
+    User <|-- Visitor
+    User <|-- Admin
+    Artist "1" --> "0..*" Artwork : creates
+    Visitor "0..1" --> "0..*" Artwork : purchases
+    Visitor "1" --> "0..*" Payment : makes
+    Payment "1" --> "1" Artwork : for
+    Admin "0..*" --> "0..*" Artwork : manages
+    Admin "0..*" --> "0..*" User : manages
