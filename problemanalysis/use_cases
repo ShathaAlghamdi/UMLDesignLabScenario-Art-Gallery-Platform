@@ -1,0 +1,20 @@
+*Main Action (Use cases):*
+Artist → Upload / Manage Artwork
+
+Visitor → Browse → View → Select → Purchase → Pay
+
+Admin → Manage Users / Artworks
+
+System → Process Payment
+
+
+*ClassDiagram:
+
+User <|-- Artist
+User <|-- Visitor
+User <|-- Admin
+
+Artist "1" --> "0..*" Artwork : creates
+Visitor --> Artwork : purchases
+Visitor --> Payment : makes
+Payment --> Artwork : for

@@ -1,0 +1,11 @@
+*Main Entities: User, Artist, Visitor, Admin, Artwork, payment . 
+
+ 
+*Key Relationships:
+
+- User is the parent entity of Artist, Visitor, and Admin.
+- An Artist can create and display artworks on the platform.
+- A Visitor can browse and purchase artworks.
+- A Visitor can make payments for artwork purchases.
+- A Payment is associated with the purchased Artwork.
+
